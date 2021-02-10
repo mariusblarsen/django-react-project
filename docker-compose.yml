@@ -5,9 +5,9 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    command: python manage.py runserver
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:app/backend/
+      - .:/app
     ports:
       - 8000:8000
     environment: 
@@ -17,6 +17,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend:app/frontend/
+      - ./frontend:/app/frontend/
     ports:
       - 3001:3000
