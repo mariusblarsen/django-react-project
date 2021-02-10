@@ -7,3 +7,4 @@ db.sqlite3
 # Other
 node_modules
 .env
+config/__pycache__
