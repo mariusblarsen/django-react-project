@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     url(r'hello/', views.hello),
+    url(r'tickers/', views.getTickers.as_view()),
 ]
