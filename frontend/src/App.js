@@ -2,9 +2,8 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home'
-import Market from './pages/Market'
-import Reports from './pages/Reports'
+import Home from './pages/Home';
+import Market from './pages/Market';
 
 function App() {
 
@@ -15,7 +14,6 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/market" component={Market} />
-        <Route path="/reports" component={Reports} />
       </Switch>
     </Router>
     </>
