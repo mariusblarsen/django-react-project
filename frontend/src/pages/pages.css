@@ -1,0 +1,29 @@
+h1{
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    color: #2f2f2f;
+    font-size: 3rem;
+    padding: 16px 16px 32px 32px;
+}
+
+button{
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #2f2f2f;
+    border: none;
+    color: #f6f6f6;
+    border-radius: 100px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 15px 32px;
+    transition: 250ms;
+}
+
+button:hover{
+    background-color: #0f0f0f;
+}
+
