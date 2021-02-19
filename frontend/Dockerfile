@@ -10,6 +10,7 @@ ENV PATH /app/frontend/node_modules/.bin:$PATH
 # install app dependencies
 COPY package.json ./
 COPY package-lock.json ./
+COPY tsconfig.json ./
 RUN npm install --silent
 RUN npm install react-scripts@4.0.2 -g --silent
 

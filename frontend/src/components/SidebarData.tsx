@@ -1,6 +1,5 @@
 import React from 'react';
 import * as ai from 'react-icons/ai';
-import * as io from 'react-icons/io';
 
 export const SidebarData = [
     {
