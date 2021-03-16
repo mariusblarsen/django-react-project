@@ -1,20 +1,32 @@
 version: '3.9'
 
-services: 
+services:
   django:
     container_name: django
     build: 
       context: .
       dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
-    environment: 
-      - CHOKIDAR_USEPOLLING=true
     volumes:
       - .:/app
     ports:
       - 8000:8000
     environment: 
+      - CHOKIDAR_USEPOLLING=true
       - DJANGO_SETTINGS_MODULE=config.settings
+    links:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongoDB
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=backend-dev
+    volumes:
+      - ./mongo:/data/db
+
   react:
     container_name: react
     build: 
