@@ -7,11 +7,6 @@ h1{
     padding: 16px 16px 32px 32px;
 }
 
-.container {
-    max-width: 900px;
-    margin: 1rem 2rem;
-}
-
 button{
     position: fixed;
     display: flex;
