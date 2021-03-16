@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import './cards.css'
 
 interface ITicker {
@@ -17,30 +17,38 @@ export default class TickerCard extends React.Component<{ ticker: ITicker }, car
         flip: true,
         height: 100,
     }
-    private frontEl = React.createRef<number | null>();
-    private backEl = React.createRef<number | null>();
+    //private frontEl = useRef<HTMLDivElement>(null)
+    private frontEl = React.createRef<HTMLDivElement>()
+    private backEl = React.createRef<HTMLDivElement>()
+    //private backEl = useRef<HTMLDivElement>(null)
 
-    setMaxHeight() {
-        const frontHeight = this.frontEl.current.getBoundingClientRect().height
-        const backHeight = this.backEl.current.getBoundingClientRect().height
-        this.setState({ height: Math.max(frontHeight, backHeight, 100) })
-        /**
-        this.setState((prevState) => {
-            ...prevState,
-            this.state.height: Math.max(frontHeight, backHeight, 100))
-    } */
+    setMaxHeight = () => {
+        if (this.frontEl.current != null && this.backEl.current != null){
+            const frontHeight = this.frontEl.current.getBoundingClientRect().height
+            const backHeight = this.backEl.current.getBoundingClientRect().height
+            this.setState({ height: Math.max(frontHeight, backHeight, 100) })
+        }
+    }
+
+    componentDidMount = () => {
+        this.setMaxHeight()
+    }
+    componentDidUpdate = () => {
+        window.addEventListener('resize', this.setMaxHeight)
+        return () => window.removeEventListener('resize', this.setMaxHeight)
     }
 
     render() {
         return (
             <div
                 className={`card ${this.state.flip ? 'flip' : ''}`}
+                style={{ height: this.state.height }}
                 onClick={() => this.setState({ flip: !this.state.flip })}
             >
-                <div className="front" ref={this.frontEl} type="number">
+                <div className="front" ref={this.frontEl}>
                     {this.props.ticker.symbol}
                 </div>
-                <div className="back" ref={this.backEl} type="number">
+                <div className="back" ref={this.backEl}>
                     {this.props.ticker.name}
                 </div>
             </div>
