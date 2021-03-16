@@ -1,5 +1,6 @@
 import React from 'react';
 import TickerCard from './TickerCard';
+import './cards.css'
 
 interface ITicker {
     symbol: string;
@@ -13,12 +14,10 @@ type Props = {
 
 export const TickerList: React.FunctionComponent<Props> = ({ tickers }: Props) => {
     return (
-        <ul>
+        <div className="card-grid">
             {tickers.map((ticker) =>
-                <div key={ticker.symbol}>
-                    <TickerCard ticker={ticker} />
-                </div>
+                <TickerCard ticker={ticker} key={ticker.symbol} />
             )}
-        </ul>
+        </div>
     );
 }

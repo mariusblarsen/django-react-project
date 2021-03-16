@@ -29,8 +29,9 @@ export default class Market extends React.Component<State> {
         console.log(this.state.tickers);
         return (
             <div className="market">
-                <button>Click</button>
-                <TickerList tickers={this.state.tickers} />
+                <div className="container">
+                    <TickerList tickers={this.state.tickers} />
+                </div>
             </div>
         );
     }
