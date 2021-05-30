@@ -1,3 +1,5 @@
+![Django CI](https://github.com/mariusblarsen/django-react-project/actions/workflows/tests.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/mariusblarsen/django-react-project/badge.svg?branch=main)](https://coveralls.io/github/mariusblarsen/django-react-project?branch=main)
 # Just a simple Django and React project
 A little project for learning purposes and fun, to get deeper knowledge of React and other tools along the way. Resulting in a foundation for future projects.
 
