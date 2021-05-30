@@ -1,0 +1,7 @@
+[run]
+source = api
+[report]
+fail_under=10
+show_missing=False
+omit =
+    */migrations/*
