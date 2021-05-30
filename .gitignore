@@ -16,3 +16,4 @@ mongo/
 # Django testing
 .coverage
 htmlcov
+coverage.xml
