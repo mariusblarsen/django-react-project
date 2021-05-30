@@ -14,13 +14,23 @@ jobs:
   test:
 
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        mongodb-version: [3.6, 4.0, 4.2, 4.4]
 
     steps:
+
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: Start MongoDB v${{ matrix.mongodb-version }}
+      uses: supercharge/mongodb-github-action@1.4.1
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+        mongodb-port: 27017
+    - name: Set up Python 3.8.5
       uses: actions/setup-python@v1
       with:
-        python-version: 3.8
+        python-version: 3.8.5
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
