@@ -42,9 +42,11 @@ jobs:
       env:
         SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         DJANGO_SETTINGS_MODULE: config.settings
-      run: coverage run -m pytest --cov=api --cov-report xml
+      run: |
+        coverage run -m pytest
+        coverage json
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: coverage.xml
+        path-to-lcov: coverage.json
