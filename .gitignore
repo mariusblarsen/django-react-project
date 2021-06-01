@@ -12,3 +12,8 @@ node_modules
 .env
 *__pycache__
 mongo/
+
+# Django testing
+.coverage
+htmlcov
+coverage.xml
