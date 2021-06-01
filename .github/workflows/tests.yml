@@ -5,10 +5,14 @@ on:
     branches-ignore:
       - "develop"
       - "master"
+    paths-ignore:
+      - '*.md'
   pull_request:
     branches:
       - "develop"
       - "master"
+    paths-ignore:
+      - '*.md'
 
 jobs:
   test:
@@ -44,9 +48,5 @@ jobs:
         DJANGO_SETTINGS_MODULE: config.settings
       run: |
         coverage run -m pytest
-        coverage json
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: coverage.json
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v1
